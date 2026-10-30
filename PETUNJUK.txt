@@ -1,0 +1,28 @@
+RIZKIFM DRAMA STUDIO — GEMINI AI EDITION
+
+Isi paket:
+- index.html: tampilan website
+- netlify/functions/generate.mjs: penghubung aman ke Gemini API
+- netlify.toml: konfigurasi Netlify
+
+PENTING:
+Versi ini memerlukan Netlify Functions. Upload folder biasa lewat Netlify Drop/manual drag-and-drop tidak menjalankan proses build Functions secara otomatis pada semua alur deploy. Cara paling andal adalah deploy melalui repository Git yang dihubungkan ke Netlify, atau menggunakan Netlify CLI/build. Jangan memasukkan API key ke index.html atau file publik.
+
+SETELAH DEPLOY:
+1. Buka Netlify > project RizkiFm Drama Studio.
+2. Project configuration > Environment variables.
+3. Tambahkan variable:
+   Key: GEMINI_API_KEY
+   Value: tempel API key Gemini milik Anda
+   Pastikan scope mencakup Functions.
+4. Simpan, lalu lakukan deploy ulang agar variable tersedia pada Function.
+5. Uji tombol AI pada website.
+
+MODEL:
+Menggunakan Gemini 2.5 Flash melalui Gemini API. Ketersediaan dan kuota gratis mengikuti kebijakan Google AI Studio/Google AI API. Kuota dapat berubah dan bukan jaminan penggunaan tanpa batas.
+
+KEAMANAN:
+API key hanya dibaca oleh Netlify Function di server. Jangan membagikan API key. Website publik dapat dipakai orang lain; endpoint ini belum memiliki login atau pembatasan pemakaian per pengguna. Karena itu, sebelum membagikan website secara luas, sebaiknya tambahkan autentikasi dan rate limit agar kuota API tidak dipakai orang lain.
+
+DATA:
+Proyek masih disimpan di browser/perangkat pengguna (localStorage), belum tersinkron antar perangkat atau pengguna.
